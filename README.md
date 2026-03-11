@@ -5,6 +5,16 @@
 **Team:** Adil Mahajan, Tavishi Amla, Divya Verma, Sarnish Kour  
 **Status:** Complete and deployment-ready
 
+## ⚡ Quick Results
+
+| Metric | Value | Why It Matters |
+|---|---:|---|
+| Mean Validation IoU | ~91.9% | Strong overall segmentation quality for deployment workflows |
+| Background Accuracy | ~97% | Stable separation of non-target regions in large orthophotos |
+| Waterbody Accuracy | ~97% | Reliable extraction of high-impact natural assets |
+| Rare Infrastructure Recall | Improved via specialist branch (about 77% in infra-centric evaluation) | Better detection of small, high-value assets often missed by baseline models |
+| Output Type | Geo-referenced shapefiles (`.shp`) | Direct GIS integration for cadastral and planning pipelines |
+
 ---
 
 ## 🌍 Introduction
