@@ -33,6 +33,24 @@ We have generated a comprehensive visual portfolio to prove the model's robustne
     *   `comparison_Infra.png` (The Specialist's victory!)
     *   `comparison_RCC.png` vs `comparison_Tiled.png` (Roof type distinction).
 
+### 4. Rendered Output Gallery
+
+Below are direct model output visualizations embedded from `outputs/`.
+
+#### Core Comparison Views
+![Complex Scene 1](outputs/comparison_complex_scene_1.png)
+![Complex Scene 2](outputs/comparison_complex_scene_2.png)
+![Complex Scene 3](outputs/comparison_complex_scene_3.png)
+
+#### Waterbody + Mixed-Class Case
+![Complex Scene Water](outputs/comparison_complex_scene_water.png)
+![Complex Scene With Legend](outputs/comparison_complex_scene_with_legend.png)
+
+#### Additional Batch Samples
+![Batch Sample 1](outputs/comparison_complex_scene_batch_1.png)
+![Batch Sample 5](outputs/comparison_complex_scene_batch_5.png)
+![Batch Sample 10](outputs/comparison_complex_scene_batch_10.png)
+
 ---
 
 ## 📂 Submission Contents
