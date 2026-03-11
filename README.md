@@ -1,8 +1,4 @@
-# 🏆 Geo-AI Hackathon | Theme 1
-
 **Project:** Automated Feature Extraction for SVAMITVA Scheme using Advanced Computer Vision  
-**Team ID:** Team_Nati-250448_Theme1  
-**Team:** Adil Mahajan, Tavishi Amla, Divya Verma, Sarnish Kour  
 **Status:** Complete and deployment-ready
 
 ## ⚡ Quick Results
