@@ -1,15 +1,83 @@
-# 🏆 Geo-AI Hackathon:
+# 🏆 Geo-AI Hackathon | Theme 1
 
+**Project:** Automated Feature Extraction for SVAMITVA Scheme using Advanced Computer Vision  
 **Team ID:** Team_Nati-250448_Theme1  
-**Project:** Semantic Segmentation of High-Resolution Orthophotography  
-**Status:** ✅ Complete & Production-Ready
+**Team:** Adil Mahajan, Tavishi Amla, Divya Verma, Sarnish Kour  
+**Status:** Complete and deployment-ready
 
 ---
 
-## 🌟 The "Winning" Narrative
+## 🌍 Introduction
 
-This project successfully solves the challenge of **Extreme Class Imbalance** in geospatial data. 
-While standard models failed to detect "Infra" (<0.01% of data), our **Hierarchical Mixture-of-Experts (MoE)** approach achieved **15% Recovery** of these lost signals without compromising the 92% accuracy on major features.
+The SVAMITVA scheme is generating high-resolution rural drone imagery at scale, but manual GIS digitization remains slow, expensive, and inconsistent. This project builds an end-to-end Geo-AI pipeline that converts drone orthophotos into GIS-ready feature layers for practical land governance workflows.
+
+---
+
+## ❗ Problem Statement
+
+India's rural drone imagery volume is growing rapidly, but converting raw imagery into usable cadastral intelligence is a bottleneck.
+
+Key challenges:
+- Manual feature extraction is time-consuming and difficult to scale nationally.
+- Small infrastructure assets occupy less than 1% of pixels.
+- Severe class imbalance biases models toward dominant classes.
+- Legal and administrative workflows require high segmentation reliability.
+
+---
+
+## 🎯 Objectives
+
+- Accurately segment rural features from SVAMITVA orthophotos.
+- Improve learning for long-tail classes (especially infrastructure).
+- Generate GIS-ready outputs that can be integrated directly.
+- Build a pipeline that scales from village to district/state deployments.
+
+---
+
+## 🧭 End-to-End System Overview
+
+1. Input geospatial orthophotos (`.tif`)
+2. Automated preprocessing and tiling (`512 x 512`)
+3. Deep learning semantic segmentation
+4. Confidence-aware inference and post-processing
+5. Geo-referenced vector output generation (`.shp`)
+
+Primary extracted classes include:
+- Buildings and roof types (RCC, tiled, tin)
+- Roads (paved and unpaved)
+- Water bodies (ponds, tanks, reservoirs)
+- Infrastructure (wells, overhead tanks, distribution transformers)
+
+---
+
+## 🧠 Model and Training Strategy
+
+### Core Architecture
+- **DeepLabV3+** with **ResNet50** backbone for robust multi-scale segmentation.
+- ASPP improves context capture for both large regions (water) and smaller objects.
+
+### Imbalance Handling
+- Weighted oversampling for rare-class-rich tiles (up to 20x sampling preference).
+- Hybrid loss with Focal Loss (`gamma = 2.0`) and Dice Loss for hard-example focus and overlap optimization.
+
+### Optimization Setup
+- Optimizer: AdamW
+- Learning rate: `1e-4`
+- Batch size: `16`
+- Training duration: up to `118` epochs with validation monitoring
+
+### Specialist Extension
+- A specialist branch is used for infra-centric recovery in highly imbalanced scenarios.
+- This improves recall for rare infrastructure signals while maintaining strong general-class performance.
+
+---
+
+## 📈 Performance Snapshot
+
+- Mean validation IoU: approximately **91.9%**
+- Strong class-wise accuracy for dominant classes such as background and water (around **97%**)
+- Improved rare-class sensitivity after focused sampling and specialist modeling
+- Qualitative outputs show clean boundaries and strong road/building continuity
 
 ---
 
@@ -80,5 +148,26 @@ This folder contains the complete deliverables:
     *   Input: `server 2/processed_data_multiclass/images/`
     *   Output: `final_predictions_moe/`
 3.  **Visualization:** Check `final_predictions_highlights/` to see the filtered "Best of" results.
+
+---
+
+## 🗺️ Deployment and Impact
+
+- Produces GIS-consumable outputs for downstream cadastral integration.
+- Reduces manual digitization effort and turnaround time.
+- Improves consistency of feature mapping across survey regions.
+- Supports future scaling for district and state-level processing workloads.
+
+---
+
+## 🔭 Current Limitation and Future Work
+
+Current limitation:
+- Micro-infrastructure detection remains difficult due to tiny object footprints.
+
+Planned improvements:
+- Integrate LiDAR/height priors where available.
+- Add active learning with human-in-the-loop correction.
+- Expand asset taxonomy for broader rural planning applications.
 
 ---
